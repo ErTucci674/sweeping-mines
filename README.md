@@ -21,8 +21,8 @@ Whenever one of these cells with a bomb is clicked, the game ends in a lost. Alt
 + HTML/CSS
 + JavaScrit
 
-## Start Playing 🎮
-You can click the following link to open the GitHub web page: ...
+## Start Playing (PC only) 🎮
+You can click the following link to open the GitHub web page: https://ertucci674.github.io/sweeping-mines/
 
 Otherwise, download the repository or clone it, then:
 

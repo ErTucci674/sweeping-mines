@@ -1,0 +1,151 @@
+/* Copyright(C) 2024 Alessandro Amatucci Girlanda
+
+This file is part of Weeping Mines.
+
+Weeping Mines is free software: you can redistribute it and / or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.
+
+Weeping Mines is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with Weeping Mines. If not, see < https: //www.gnu.org/licenses />. */
+
+/* Generic */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(216, 238, 232);
+    color: rgb(0, 23, 50);
+    font-family: 'Darker Grotesque';
+    font-size: 40px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.btn {
+    font-size: 24px;
+    font-family: 'Darker Grotesque';
+    padding: 4px 20px 4px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: 2px solid rgb(0, 23, 50);
+}
+
+.btn:hover {
+    background-color: rgb(203, 224, 221);
+}
+
+/* Game Grid */
+
+.score {
+    display: flex;
+    font-size: 32px;
+    justify-content: space-between;
+}
+
+.game-display {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    min-width: 484px;
+}
+
+.game-container {
+    width: 484px;
+}
+
+.game-board {
+    border: 2px solid rgb(0, 23, 50);
+    position: relative;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell {
+    border: 1px solid black;
+    cursor: pointer;
+    height: 48px;
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell-clicked {
+    background-color: rgb(157, 197, 199);
+    cursor: not-allowed;
+}
+
+.cell-bomb {
+    background-image: url("images/bomb.png");
+    background-size: contain;
+    background-position: center;
+}
+
+.cellText {
+    font-size: 40px;
+}
+
+.cell-flagged {
+    background-image: url("images/flag.png");
+}
+
+/* Game Over */
+
+.end-game-screen {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(241, 117, 78, 0.7);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.win {
+    background-color: rgba(78, 241, 187, 0.7);
+}
+
+.end-game-text {
+    font-size: 48px;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P';
+}
+
+/* Tutorial */
+.tutorial-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tutorial {
+    width: 484px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tutorial-text {
+    font-size: 20px;
+}
+
+/* Utilities */
+
+.hidden {
+    display: none;
+}

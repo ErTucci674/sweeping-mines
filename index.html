@@ -24,10 +24,9 @@ along with Weeping Mines. If not, see < https://www.gnu.org/licenses />. -->
     <title>Game Board</title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@700&family=Press+Start+2P&display=swap"
-        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 
     <!-- Stylesheet -->
     <link href="./style.css" rel="stylesheet" />
@@ -38,7 +37,9 @@ along with Weeping Mines. If not, see < https://www.gnu.org/licenses />. -->
     <div class="game-display">
         <div class="game-container">
             <header class="game-panel">
-                <h1>WEEPING MINES</h1>
+                <div class="h1-container">
+                    <h1>SWEEPING MINES</h1>
+                </div>
                 <div class="score">
                     <span class="score-label">SCORE</span>
                     <span class="score-counter"></span>
@@ -54,9 +55,12 @@ along with Weeping Mines. If not, see < https://www.gnu.org/licenses />. -->
         </div>
     </div>
     <div class="tutorial-container">
-        <div class="tutorial">
+        <div class="tutorial-pc">
             <span class="tutorial-text">LEFT CLICK: REVEAL CELL</span>
             <span class="tutorial-text">RIGHT CLICK: FLAG</span>
+        </div>
+        <div class="tutorial-phone">
+            <button class="tutorial-phone-btn"></button>
         </div>
     </div>
 

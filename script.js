@@ -13,6 +13,7 @@ const scoreCounter = document.querySelector(".score-counter");
 const grid = document.querySelector(".grid");
 const endGameScreen = document.querySelector(".end-game-screen");
 const endGameText = document.querySelector(".end-game-text");
+const tutorialPhoneBtn = document.querySelector(".tutorial-phone-btn");
 const playAgainButton = document.querySelector(".play-again");
 
 // Remove right click options when boardgame is clicked
@@ -32,6 +33,8 @@ let cells = Array(rows).fill().map(() => Array(columns).fill(EMPTY));
 let insertedBombs = 0;
 let score = 0;
 let scoreZeros = 0;
+
+let tutorialBtnActive = false;
 
 // Show number of zeros depending on 'totalCells'
 let tmpValue = totalCells;
@@ -55,7 +58,7 @@ while (insertedBombs < totalBombs) {
     const randomRow = Math.floor(Math.random() * rows);
     const randomColumn = Math.floor(Math.random() * columns);
 
-    if (cells[randomColumn][randomRow] != BOMB) {
+    if (cells[randomColumn][randomRow] !== BOMB) {
         cells[randomColumn][randomRow] = BOMB;
         insertedBombs++;
     }
@@ -70,8 +73,17 @@ for (let r = 0; r < rows; r++) {
         cell.classList.add("cell");
 
         cell.addEventListener("mousedown", event => {
+            // Flag cell
+            if (event.button == 2 || tutorialBtnActive) {
+                if (cell.classList.contains("cell-flagged")) {
+                    cell.classList.remove("cell-flagged");
+                }
+                else if (!cell.classList.contains("cell-clicked")) {
+                    cell.classList.add("cell-flagged");
+                }
+            }
             // Reveal cell
-            if (event.button == 0) {
+            else if (event.button == 0) {
                 cell.classList.remove("cell-flagged");
                 // Lose if bomb found
                 if (cells[c][r] == BOMB) {
@@ -93,19 +105,9 @@ for (let r = 0; r < rows; r++) {
                             }
                         }
                     }
-                    if (bombCounter != 0) {
-                        cellText.innerHTML = bombCounter;
-                    }
 
-                }
-            }
-            // Flag cell
-            else if (event.button == 2) {
-                if (cell.classList.contains("cell-flagged")) {
-                    cell.classList.remove("cell-flagged");
-                }
-                else if (!cell.classList.contains("cell-clicked")) {
-                    cell.classList.add("cell-flagged");
+                    if (bombCounter != 0) cellText.innerHTML = bombCounter;
+
                 }
             }
         });
@@ -124,7 +126,7 @@ function revealAllBombs() {
     const allCells = document.querySelectorAll('.cell');
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
-            if (cells[c][r] == BOMB) {
+            if (cells[c][r] === BOMB) {
                 const cellNum = r * rows + c;
                 allCells[cellNum].classList.remove('cell-flagged');
                 allCells[cellNum].classList.add('cell-bomb');
@@ -142,6 +144,16 @@ function endGame(isVictory) {
     revealAllBombs();
     endGameScreen.classList.remove("hidden");
 }
+
+tutorialPhoneBtn.addEventListener("click", () => {
+    tutorialBtnActive = !tutorialBtnActive;
+    if (tutorialBtnActive) {
+        tutorialPhoneBtn.classList.add('tutorial-phone-btn-active');
+    }
+    else {
+        tutorialPhoneBtn.classList.remove('tutorial-phone-btn-active');
+    }
+});
 
 playAgainButton.addEventListener("click", () => {
     window.location.reload();

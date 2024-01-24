@@ -20,21 +20,29 @@ You should have received a copy of the GNU General Public License along with Wee
 body {
     background-color: rgb(216, 238, 232);
     color: rgb(0, 23, 50);
-    font-family: 'Darker Grotesque';
-    font-size: 40px;
+    font-family: 'Orbitron', 'sans-serif';
+    font-size: 10px;
+    min-width: 500px;
+}
+
+.h1-container {
+    background-color: none;
 }
 
 h1 {
+    color: orange;
     font-size: 40px;
+    -webkit-text-stroke: 1px black;
+    margin: 10px 0;
 }
 
 .btn {
     font-size: 24px;
-    font-family: 'Darker Grotesque';
     padding: 4px 20px 4px 20px;
     cursor: pointer;
     text-transform: uppercase;
     border: 2px solid rgb(0, 23, 50);
+    border-radius: 5px;
 }
 
 .btn:hover {
@@ -54,7 +62,6 @@ h1 {
     display: flex;
     justify-content: center;
     text-align: center;
-    min-width: 484px;
 }
 
 .game-container {
@@ -69,6 +76,7 @@ h1 {
 .grid {
     display: flex;
     flex-wrap: wrap;
+    background-color: rgb(246, 215, 176);
 }
 
 .cell {
@@ -82,7 +90,7 @@ h1 {
 }
 
 .cell-clicked {
-    background-color: rgb(157, 197, 199);
+    background-color: rgb(220, 186, 141);
     cursor: not-allowed;
 }
 
@@ -122,26 +130,64 @@ h1 {
 }
 
 .end-game-text {
+    /* -webkit-text-stroke: 1px black;*/
+    color: rgb(166, 112, 78);
+    color: black;
     font-size: 48px;
     text-transform: uppercase;
-    font-family: 'Press Start 2P';
+    /* font-family: 'Press Start 2P'; */
 }
 
 /* Tutorial */
 .tutorial-container {
+    margin-top: 10px;
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.tutorial {
+.tutorial-pc {
     width: 484px;
     display: flex;
     justify-content: space-between;
 }
 
 .tutorial-text {
-    font-size: 20px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.tutorial-phone-btn {
+    display: none;
+    background-color: rgb(200, 200, 200);
+    background-image: url(images/flag.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: grayscale(90%);
+    opacity: 0.8;
+    width: 100px;
+    height: 100px;
+    border: 2px solid;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.tutorial-phone-btn-active {
+    background-color: orange;
+    filter: grayscale(0%);
+    opacity: 1.0;
+    scale: 1.1;
+}
+
+@media screen and (max-width: 767px) {
+    .tutorial-pc {
+        display: none;
+    }
+
+    .tutorial-phone-btn {
+        display: block;
+    }
 }
 
 /* Utilities */

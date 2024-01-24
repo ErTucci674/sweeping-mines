@@ -1,5 +1,5 @@
 # 💣 Sweeping Mines
-_Sweeping Mines_ is inspired by the classic computer game _Minesweeper_. The same mechanics have been implemented but with graphics designed by me.
+_Sweeping Mines_ is inspired by the classic computer game _Minesweeper_. The same mechanics have been implemented but with graphics designed by me. Moreover, the game can be played on either PCs or Phones!
 
 ## About the Project 📖
 Just like the original game, the objective is to find all of the empty cells while avoiding the mines hidden on the board.
@@ -21,7 +21,7 @@ Whenever one of these cells with a bomb is clicked, the game ends in a lost. Alt
 + HTML/CSS
 + JavaScrit
 
-## Start Playing (PC only) 🎮
+## Start Playing 🎮
 You can click the following link to open the GitHub web page: https://ertucci674.github.io/sweeping-mines/
 
 Otherwise, download the repository or clone it, then:
@@ -158,6 +158,35 @@ When the game ends, a _Play Again_ button is shown. This includes an event liste
 ```js
 playAgainButton.addEventListener("click", () => {
     window.location.reload();
+});
+```
+
+### Phone Adaptation 📱
+On the _CSS_ file, a `@media` is used to see if the screen of the device that accessed the browser is of a certain length. In case it is less than the pre-stablished maximum number, the tutorial text is swapped for a Flag Button.
+
+```css
+@media screen and (max-width: 767px) {
+    .tutorial-pc {
+        display: none;
+    }
+
+    .tutorial-phone-btn {
+        display: block;
+    }
+}
+```
+
+PC users have the left and right 'click' of a mouse to reveal the cells and place a flag. Phone users have only the 'touch' option, instead. This counts as a mouse left click which is reveals cells. The flag button allows phone users to insert flags as well by changing the 'touch' mode of the game. When the button is clicked and the flag mode is ON, every 'touch'places/removes a flag. Whilst the flag mode is OFF, every 'touch' reveals the selected cell.
+
+```js
+tutorialPhoneBtn.addEventListener("click", () => {
+    tutorialBtnActive = !tutorialBtnActive;
+    if (tutorialBtnActive) {
+        tutorialPhoneBtn.classList.add('tutorial-phone-btn-active');
+    }
+    else {
+        tutorialPhoneBtn.classList.remove('tutorial-phone-btn-active');
+    }
 });
 ```
 

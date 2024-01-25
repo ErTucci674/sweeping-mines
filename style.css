@@ -41,12 +41,13 @@ h1 {
     padding: 4px 20px 4px 20px;
     cursor: pointer;
     text-transform: uppercase;
-    border: 2px solid rgb(0, 23, 50);
-    border-radius: 5px;
+    background-color: rgb(216, 238, 232);
+    border: 3px solid rgb(0, 23, 50);
+    border-radius: 10px;
 }
 
 .btn:hover {
-    background-color: rgb(203, 224, 221);
+    background-color: rgb(220, 186, 141);
 }
 
 /* Game Grid */
@@ -130,12 +131,9 @@ h1 {
 }
 
 .end-game-text {
-    /* -webkit-text-stroke: 1px black;*/
-    color: rgb(166, 112, 78);
     color: black;
     font-size: 48px;
     text-transform: uppercase;
-    /* font-family: 'Press Start 2P'; */
 }
 
 /* Tutorial */
@@ -169,7 +167,6 @@ h1 {
     height: 100px;
     border: 2px solid;
     border-radius: 50%;
-    cursor: pointer;
     margin-top: 15px;
 }
 

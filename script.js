@@ -92,22 +92,7 @@ for (let r = 0; r < rows; r++) {
                 }
                 // 'Activate empty cell'
                 else if (!cell.classList.contains("cell-clicked")) {
-                    cell.classList.add("cell-clicked");
-                    updateScore();
-
-                    // Find bombs around clicked cell
-                    let bombCounter = 0;
-                    for (let br = r - 1; br <= r + 1; br++) {
-                        for (let bc = c - 1; bc <= c + 1; bc++) {
-                            // Check the cell is in the grid nad if it contains a bomb
-                            if (br >= 0 && br < rows && bc >= 0 && bc < columns && cells[bc][br] == BOMB) {
-                                bombCounter++;
-                            }
-                        }
-                    }
-
-                    if (bombCounter != 0) cellText.innerHTML = bombCounter;
-
+                    revealCell(cell, cellText, r, c);
                 }
             }
         });
@@ -120,6 +105,24 @@ for (let r = 0; r < rows; r++) {
         cell.appendChild(cellText);
         grid.appendChild(cell);
     }
+}
+
+function revealCell(cell, cellText, r, c) {
+    cell.classList.add("cell-clicked");
+    updateScore();
+
+    // Find bombs around clicked cell
+    let bombCounter = 0;
+    for (let br = r - 1; br <= r + 1; br++) {
+        for (let bc = c - 1; bc <= c + 1; bc++) {
+            // Check the cell is in the grid nad if it contains a bomb
+            if (br >= 0 && br < rows && bc >= 0 && bc < columns && cells[bc][br] == BOMB) {
+                bombCounter++;
+            }
+        }
+    }
+
+    if (bombCounter != 0) cellText.innerHTML = bombCounter;
 }
 
 function revealAllBombs() {

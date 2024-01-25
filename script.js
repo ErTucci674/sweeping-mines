@@ -74,7 +74,7 @@ for (let r = 0; r < rows; r++) {
 
         cell.addEventListener("mousedown", event => {
             // Flag cell
-            if (event.button == 2 || tutorialBtnActive) {
+            if (event.button === 2 || tutorialBtnActive) {
                 if (cell.classList.contains("cell-flagged")) {
                     cell.classList.remove("cell-flagged");
                 }
@@ -83,10 +83,9 @@ for (let r = 0; r < rows; r++) {
                 }
             }
             // Reveal cell
-            else if (event.button == 0) {
-                cell.classList.remove("cell-flagged");
+            else if (event.button === 0 && !cell.classList.contains("cell-flagged")) {
                 // Lose if bomb found
-                if (cells[c][r] == BOMB) {
+                if (cells[c][r] === BOMB) {
                     cell.classList.add("cell-bomb");
                     endGame(false);
                 }
